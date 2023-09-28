@@ -6,4 +6,5 @@ set(CMAKE_CXX_STANDARD 17)
 add_executable(BlackjackBasicStrategyGame
         code/Blackjack.h
         code/Blackjack.cpp
-        code/main.cpp)
+        code/main.cpp
+)
