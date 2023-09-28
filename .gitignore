@@ -366,5 +366,7 @@ FodyWeavers.xsd
 # Visual Studio Code project configuration
 .code
 
-# Jetbrains IDE project configuration
+# Jetbrains IDE
 .idea
+cmake-build-debug
+
