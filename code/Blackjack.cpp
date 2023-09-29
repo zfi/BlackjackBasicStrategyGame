@@ -157,7 +157,7 @@ bool Blackjack::isGameOver(int score)
             if (score == 21)
             {
                 cout << "Blackjack! You win!" << endl;
-                return true;;
+                return true;
             }
             else if (score > 21)
             {
