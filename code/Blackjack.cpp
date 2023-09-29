@@ -153,21 +153,28 @@ bool Blackjack::isGameOver(int score)
     return false;
 }
 
+
+/**
+ * Prompt user to play another hand.
+ * @return Returns a 'Y' or 'N' response.
+ */
 char Blackjack::anotherGame()
 {
     char response;
+    bool done = false;
 
-    do {
-        cout << "Do you want to play again? (Y/N): ";
+    cout << "Do you want to play again? (Y/N): ";
 
+    while (! done) {
         // Get the user response
         cin >> response;
         response = toUpperCase(response);
         if (response == 'Y' || response == 'N') {
-            return response;
+            done = true;
+        } else {
+            cout << "\n\nPlease enter Y or N.\n\n";
         }
+    }
 
-        cout << "\n\nPlease enter Y or N.\n\n";
-
-    } while (response != 'Y' && response != 'N');
+    return response;
 }
