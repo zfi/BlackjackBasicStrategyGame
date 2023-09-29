@@ -8,9 +8,8 @@ void Blackjack::blackjackGame()
     cout << "Work In Progress Blackjack Basic Strategy!" << endl;
     char playAgain = 'Y';
 
-    // True if a game is currently underway. This will become false when
-    // the player no longer wants to play.
-    // bool isPlaying = true;
+    // True if play underway. This will become false when the player
+    // no longer wants to play.
 
     while (playAgain == 'Y')
     {
@@ -87,13 +86,23 @@ void Blackjack::blackjackGame()
     }
 }
 
-// Methods
 
+
+/**
+ *
+ * @return
+ */
 int Blackjack::randomCard()
 {
     return rand() % 11 + 1;
 }
 
+
+/**
+ *
+ * @param hand
+ * @return
+ */
 int Blackjack::calcTotal(const vector<int>& hand)
 {
     int total = 0;
@@ -117,6 +126,12 @@ int Blackjack::calcTotal(const vector<int>& hand)
     return total;
 }
 
+
+/**
+ *
+ * @param choice
+ * @return
+ */
 char Blackjack::toUpperCase(char choice)
 {
     if (choice >= 'a' && choice <= 'z')
@@ -142,7 +157,7 @@ bool Blackjack::isGameOver(int score)
             if (score == 21)
             {
                 cout << "Blackjack! You win!" << endl;
-                return true;;
+                return true;
             }
             else if (score > 21)
             {
@@ -153,21 +168,28 @@ bool Blackjack::isGameOver(int score)
     return false;
 }
 
+
+/**
+ * Prompt user to play another hand.
+ * @return Returns a 'Y' or 'N' response.
+ */
 char Blackjack::anotherGame()
 {
     char response;
+    bool done = false;
 
-    do {
-        cout << "Do you want to play again? (Y/N): ";
+    cout << "Do you want to play again? (Y/N): ";
 
+    while (! done) {
         // Get the user response
         cin >> response;
         response = toUpperCase(response);
         if (response == 'Y' || response == 'N') {
-            return response;
+            done = true;
+        } else {
+            cout << "\n\nPlease enter Y or N.\n\n";
         }
+    }
 
-        cout << "\n\nPlease enter Y or N.\n\n";
-
-    } while (response != 'Y' && response != 'N');
+    return response;
 }
