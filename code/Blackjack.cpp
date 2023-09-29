@@ -8,9 +8,8 @@ void Blackjack::blackjackGame()
     cout << "Work In Progress Blackjack Basic Strategy!" << endl;
     char playAgain = 'Y';
 
-    // True if a game is currently underway. This will become false when
-    // the player no longer wants to play.
-    // bool isPlaying = true;
+    // True if play underway. This will become false when the player
+    // no longer wants to play.
 
     while (playAgain == 'Y')
     {
@@ -87,13 +86,23 @@ void Blackjack::blackjackGame()
     }
 }
 
-// Methods
 
+
+/**
+ *
+ * @return
+ */
 int Blackjack::randomCard()
 {
     return rand() % 11 + 1;
 }
 
+
+/**
+ *
+ * @param hand
+ * @return
+ */
 int Blackjack::calcTotal(const vector<int>& hand)
 {
     int total = 0;
@@ -117,6 +126,12 @@ int Blackjack::calcTotal(const vector<int>& hand)
     return total;
 }
 
+
+/**
+ *
+ * @param choice
+ * @return
+ */
 char Blackjack::toUpperCase(char choice)
 {
     if (choice >= 'a' && choice <= 'z')
